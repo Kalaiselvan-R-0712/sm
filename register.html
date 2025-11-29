@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | Stackly</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .brand-font {
+      font-family: 'Playfair Display', serif;
+    }
+/* Logo Box */
+.logo-box {
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  min-width: 0;
+}
+.logo-img-rect {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+  padding: 2px 6px;
+  border-radius: 14px;
+  box-shadow: 0 1px 12px rgba(44,32,76,0.09);
+  transition: box-shadow .2s;
+}
+
+/* Header */
+header.site-header {
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.88);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  transition: background 0.25s, border 0.2s;
+}
+
+/* Buttons & Inputs */
+.nav-btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-ghost {
+  border: 1px solid rgba(0,0,0,0.10);
+  background: transparent;
+  color: #23262e;
+}
+.login-btn {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.register-btn {
+  background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+  color: #18181b;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(212,175,55,0.13);
+}
+
+/* Text colors */
+body, p, h1, h2, h3, h4, h5, h6, span, label, li, a, button {
+  color: #23262e !important;
+}
+.text-muted, .text-gray-400, .text-gray-300, .text-gray-500 {
+  color: #75787d !important;
+}
+a:hover, a[aria-current="page"] {
+  color: var(--accent) !important;
+}
+
+/* Body styling */
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--ivory);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  header.site-header { padding-left: 11px; padding-right: 11px; }
+  .nav-links { display: none !important; }
+  #mobile-menu { display: none; }
+}
+@media (max-width: 640px) {
+  .logo-img-rect { height: 40px !important; }
+  .mobile-cta { display: inline-flex !important; }
+}
+
+/* Mobile menu styling */
+#mobile-menu {
+  background: white;
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+  text-align: center;
+}
+#mobile-menu a {
+  display: block;
+  padding: 10px 0;
+}
+
+/* Footer */
+footer {
+  color: #2d2f34 !important;
+  background: transparent !important;
+}
+footer a {
+  color: #3b3e45 !important;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+footer a:hover {
+  color: var(--accent) !important;
+}
+
+/* Hero */
+#hero .hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+@media (min-width: 1024px) {
+  #hero .hero-inner {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+  }
+}
+
+/* Logo Box */
+.logo-box {
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  min-width: 0;
+}
+.logo-img-rect {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+  padding: 2px 6px;
+  border-radius: 14px;
+  box-shadow: 0 1px 12px rgba(44,32,76,0.09);
+  transition: box-shadow .2s;
+}
+
+/* Header */
+header.site-header {
+  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.88);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  transition: background 0.25s, border 0.2s;
+}
+
+/* Buttons & Inputs */
+.nav-btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-ghost {
+  border: 1px solid rgba(0,0,0,0.10);
+  background: transparent;
+  color: #23262e;
+}
+.login-btn {
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.register-btn {
+  background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+  color: #18181b;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(212,175,55,0.13);
+}
+
+/* Text colors */
+body, p, h1, h2, h3, h4, h5, h6, span, label, li, a, button {
+  color: #23262e !important;
+}
+.text-muted, .text-gray-400, .text-gray-300, .text-gray-500 {
+  color: #75787d !important;
+}
+a:hover {
+  color: var(--accent) !important;
+}
+
+/* Body styling */
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--ivory);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  header.site-header { padding-left: 11px; padding-right: 11px; }
+  .nav-links { display: none !important; }
+  #mobile-menu { display: none; }
+}
+@media (max-width: 640px) {
+  .logo-img-rect { height: 40px !important; }
+  .mobile-cta { display: inline-flex !important; }
+}
+
+/* Mobile hero fixes */
+#hero .hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+@media(min-width: 1024px) {
+  #hero .hero-inner {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+  }
+}
+
+/* Mobile menu styling */
+#mobile-menu {
+  background: white;
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+  text-align: center;
+}
+#mobile-menu a {
+  display: block;
+  padding: 10px 0;
+}
+
+/* Footer */
+footer {
+  color: #2d2f34 !important;
+  background: transparent !important;
+}
+footer a {
+  color: #3b3e45 !important;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+footer a:hover {
+  color: var(--accent) !important;
+}
+/* Dropdown */
+#home-dropdown-menu a {
+  cursor: pointer;
+}
+#home-dropdown-menu {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+  /* Center mobile menu */
+  #mobile-menu {
+    background: white;
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+    display: none;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  #mobile-menu.show {
+    display: flex;
+  }
+  #mobile-menu a {
+    display: block;
+    padding: 10px 0;
+  }
+
+  #mobile-menu {
+  background: white;
+  border-top: 1px solid #ddd;
+  padding: 10px 0;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+#mobile-menu.hidden { display: none; }
+#mobile-menu.show { display: flex; }
+
+
+@media (max-width: 640px) {
+  #hero .hero-inner span {
+    color: #d4af37 !important; /* gold */
+  }
+}
+
+</style>
+</head>
+
+<body>
+<!-- HEADER -->
+<header class="site-header fixed top-0 left-0 w-full z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+    <a href="index.html" class="logo-box">
+      <img src="assets/images/logo/stackly_logo.webp" alt="Stackly logo" class="logo-img-rect" />
+    </a>
+</header>
+
+  <!-- Hamburger Script -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+
+  <!-- ================= REGISTER FORM ================= -->
+  <section class="min-h-screen flex items-center justify-center px-4 pt-28 pb-10">
+
+    <div class="w-full max-w-md bg-white rounded-2xl p-8 shadow-xl border border-gray-300">
+      <h2 class="text-3xl brand-font text-center text-yellow-500 mb-8">Create Your Account</h2>
+
+      <form id="registerForm" class="space-y-6">
+
+        <!-- Email -->
+        <div>
+          <label class="block text-sm font-medium mb-2">Email</label>
+          <input id="email" type="email" required
+            class="w-full px-4 py-3 bg-white border border-gray-400 rounded-lg focus:border-yellow-500 focus:ring-yellow-500 outline-none transition" />
+        </div>
+
+        <!-- Password -->
+        <div>
+          <label class="block text-sm font-medium mb-2">Password</label>
+          <div class="relative">
+  <input id="password" type="password"
+    class="w-full px-4 pr-12 py-3 bg-white border border-gray-400 rounded-lg
+           focus:border-yellow-500 focus:ring-yellow-500 outline-none transition" />
+  <span onclick="togglePass('password')"
+    class="absolute right-4 top-3.5 cursor-pointer text-gray-500 text-xl">👁️</span>
+</div>
+
+        </div>
+
+        <!-- Confirm Password -->
+        <div>
+          <label class="block text-sm font-medium mb-2">Confirm Password</label>
+          <div class="relative">
+  <input id="confirmPassword" type="password"
+    class="w-full px-4 pr-12 py-3 bg-white border border-gray-400 rounded-lg
+           focus:border-yellow-500 focus:ring-yellow-500 outline-none transition" />
+  <span onclick="togglePass('confirmPassword')"
+    class="absolute right-4 top-3.5 cursor-pointer text-gray-500 text-xl">👁️</span>
+</div>
+
+        </div>
+
+        <!-- Register Button -->
+        <button type="submit"
+          class="w-full py-3 bg-yellow-500 text-black font-semibold text-lg rounded-lg hover:bg-yellow-600 transition">
+          Register
+        </button>
+
+        <!-- Links -->
+        <p class="text-center text-gray-600 mt-4">
+          Already have an account?
+          <a href="login.html" class="text-yellow-500 font-semibold hover:underline">Login</a>
+        </p>
+
+        <p class="text-center mt-1">
+          <a href="index.html" class="text-black font-medium hover:underline">Continue as Guest</a>
+        </p>
+
+      </form>
+    </div>
+
+  </section>
+
+  <!-- ================= JS VALIDATION ================= -->
+<script>
+  function togglePass(id) {
+    const input = document.getElementById(id);
+    input.type = input.type === "password" ? "text" : "password";
+  }
+
+  const email = document.getElementById('email');
+  const password = document.getElementById('password');
+  const confirmPassword = document.getElementById('confirmPassword');
+
+  // Create error message elements
+  const emailError = document.createElement("p");
+  emailError.className = "text-red-600 text-sm mt-1";
+
+  const passError = document.createElement("p");
+  passError.className = "text-red-600 text-sm mt-1";
+
+  const confirmError = document.createElement("p");
+  confirmError.className = "text-red-600 text-sm mt-1";
+
+  email.parentNode.appendChild(emailError);
+  password.parentNode.parentNode.appendChild(passError);
+  confirmPassword.parentNode.parentNode.appendChild(confirmError);
+
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  const passwordPattern =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+
+  // LIVE EMAIL CHECK
+  email.addEventListener("input", () => {
+    if (emailPattern.test(email.value.trim())) {
+      email.classList.add("border-green-500");
+      email.classList.remove("border-red-500");
+      emailError.textContent = "";
+    } else {
+      email.classList.add("border-red-500");
+      email.classList.remove("border-green-500");
+      emailError.textContent = "Enter a valid email (example@domain.com)";
+    }
+  });
+
+
+  // LIVE PASSWORD CHECK
+  password.addEventListener("input", () => {
+    if (passwordPattern.test(password.value)) {
+      password.classList.add("border-green-500");
+      password.classList.remove("border-red-500");
+      passError.textContent = "";
+    } else {
+      password.classList.add("border-red-500");
+      password.classList.remove("border-green-500");
+      passError.textContent =
+        "Password must contain 8 chars, uppercase, lowercase, number & special character.";
+    }
+  });
+
+
+  // CONFIRM PASSWORD LIVE CHECK
+  confirmPassword.addEventListener("input", () => {
+    if (confirmPassword.value === password.value && password.value !== "") {
+      confirmPassword.classList.add("border-green-500");
+      confirmPassword.classList.remove("border-red-500");
+      confirmError.textContent = "";
+    } else {
+      confirmPassword.classList.add("border-red-500");
+      confirmPassword.classList.remove("border-green-500");
+      confirmError.textContent = "Passwords do not match!";
+    }
+  });
+
+
+  // FORM SUBMIT CHECK
+  document.getElementById('registerForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (
+      emailPattern.test(email.value.trim()) &&
+      passwordPattern.test(password.value) &&
+      password.value === confirmPassword.value
+    ) {
+      window.location.href = "404.html";
+    }
+  });
+</script>
+
+  <!-- FOOTER -->
+<footer class="bg-[#060507] dark:bg-[#050406] text-gray-300 pt-10 pb-8">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
+    <div>
+      <div class="logo-box mb-3">
+        <img src="assets/images/logo/stackly_logo.webp" alt="Stackly" class="logo-img-rect" />
+      </div>
+      <p class="text-sm text-gray-400">Stackly is a next generation Social Media & WordPress Agency.</p>
+    </div>
+    <div>
+      <h4 class="font-semibold text-white mb-2">Quick Links</h4>
+      <ul class="space-y-2 text-sm text-gray-300">
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold text-white mb-2">Address</h4>
+      <p class="text-sm text-gray-400">📍 22 Event Street, <br> Chennai, Tamil Nadu, <br> India</p>
+      <p class="text-sm text-gray-400 mt-1">📞 +91 98765 43210</p>
+      <p class="text-sm text-gray-400 mt-1">✉️ hello@stackly.com</p>
+    </div>
+    <div>
+      <h4 class="font-semibold text-white mb-2">Follow us</h4>
+      <div class="flex items-center gap-3 mb-3">
+        <a href="404.html" class="sicon" title="Email" aria-label="Email" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#EA4335" width="24" height="24">
+            <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/>
+          </svg>
+        </a>
+
+        <a href="404.html" class="sicon" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0077B5" width="24" height="24">
+            <path d="M4.98 3.5C4.98 4.88 3.84 6 2.5 6S0 4.88 0 3.5 1.14 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8H4.5v14H.5V8zM7.5 8h4v2h.1c.5-1 2-2 4-2 4.4 0 5.2 2.9 5.2 6.7V22H17v-6.8c0-1.7 0-3.9-2.5-3.9-2.5 0-2.8 1.9-2.8 3.8V22H7.5V8z"/>
+          </svg>
+        </a>
+
+        <a href="404.html" class="sicon" title="Twitter" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1DA1F2" width="24" height="24">
+            <path d="M23 3a10.9 10.9 0 0 1-3.14.85 4.48 4.48 0 0 0 1.94-2.48 9.12 9.12 0 0 1-2.89 1.1 4.52 4.52 0 0 0-7.7 4.12A12.79 12.79 0 0 1 1.67 2.15 4.52 4.52 0 0 0 3.13 9a4.49 4.49 0 0 1-2.04-.55v.06a4.52 4.52 0 0 0 3.63 4.41 4.51 4.51 0 0 1-2.03.07 4.53 4.53 0 0 0 4.22 3.13A9.07 9.07 0 0 1 1.11 18.1 12.82 12.82 0 0 0 7 20c8.3 0 12.85-6.87 12.85-12.84 0-.2 0-.42-.01-.63A9.18 9.18 0 0 0 23 3z"/>
+          </svg>
+        </a>
+
+        <a href="404.html" class="sicon" title="Facebook" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1877F2" width="24" height="24">
+            <path d="M22.675 0H1.325C.594 0 0 .593 0 1.325v21.351C0 23.406.593 24 1.325 24h11.483v-9.294H9.692v-3.622h3.116V8.414c0-3.1 1.896-4.788 4.66-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.92.001c-1.504 0-1.796.715-1.796 1.765v2.315h3.59l-.467 3.621h-3.123V24h6.116c.73 0 1.324-.594 1.324-1.324V1.325C24 .594 23.406 0 22.675 0z"/>
+          </svg>
+        </a>
+
+        <a href="404.html" class="sicon" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#E1306C" width="24" height="24">
+            <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 3.5a1 1 0 110 2 1 1 0 010-2zm-5 1.5a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 text-center text-xs text-gray-500 mt-8">© 2025 Stackly. All rights reserved.</div>
+</footer>
+
+<script>
+const mobileToggle = document.getElementById('mobile-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileToggle.addEventListener('click', () => {
+  const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+  mobileToggle.setAttribute('aria-expanded', String(!expanded));
+  if (expanded) {
+    mobileMenu.classList.add('hidden');
+  } else {
+    mobileMenu.classList.remove('hidden');
+  }
+});
+</script>
+
+<script>
+const mobileToggle = document.getElementById('mobile-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+const homeDropdownBtn = document.getElementById('home-dropdown-button');
+const homeDropdownMenu = document.getElementById('home-dropdown-menu');
+
+mobileToggle.addEventListener('click', () => {
+  const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+  mobileToggle.setAttribute('aria-expanded', String(!expanded));
+  if (expanded) {
+    mobileMenu.classList.add('hidden');
+  } else {
+    mobileMenu.classList.remove('hidden');
+  }
+});
+
+homeDropdownBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  homeDropdownMenu.classList.toggle('hidden');
+  const expanded = homeDropdownBtn.getAttribute('aria-expanded') === 'true';
+  homeDropdownBtn.setAttribute('aria-expanded', String(!expanded));
+});
+
+document.addEventListener('click', (e) => {
+  if (!homeDropdownBtn.contains(e.target) && !homeDropdownMenu.contains(e.target)) {
+    homeDropdownMenu.classList.add('hidden');
+    homeDropdownBtn.setAttribute('aria-expanded', 'false');
+  }
+});
+</script>
+<script>
+const mobileToggle = document.getElementById('mobile-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileToggle.addEventListener('click', () => {
+  const isVisible = mobileMenu.classList.toggle('show');
+  mobileToggle.setAttribute('aria-expanded', isVisible);
+});
+</script>
+
+<script>
+document.getElementById("mobile-toggle").addEventListener("click", () => {
+  const menu = document.getElementById("mobile-menu");
+  const btn = document.getElementById("mobile-toggle");
+
+  menu.classList.toggle("hidden");
+  menu.classList.toggle("show");
+
+  const expanded = btn.getAttribute("aria-expanded") === "true";
+  btn.setAttribute("aria-expanded", !expanded);
+});
+</script>
+
+<script>const mobileHomeDropdownBtn = document.getElementById('mobile-home-dropdown-btn');
+const mobileHomeDropdownMenu = document.getElementById('mobile-home-dropdown-menu');
+
+mobileHomeDropdownBtn.addEventListener('click', () => {
+  const expanded = mobileHomeDropdownBtn.getAttribute('aria-expanded') === 'true';
+  mobileHomeDropdownBtn.setAttribute('aria-expanded', String(!expanded));
+  mobileHomeDropdownMenu.classList.toggle('hidden');
+  mobileHomeDropdownBtn.querySelector('svg').classList.toggle('rotate-180');
+});
+</script>
+
+<script>
+    function handleContact(event) {
+  event.preventDefault();
+  // Add form validation or send logic here if needed
+
+  window.location.href = "404.html"; // redirect after submission
+}
+</script>
+
+<script>const mobileHomeDropdownBtn = document.getElementById('mobile-home-dropdown-btn');
+const mobileHomeDropdownMenu = document.getElementById('mobile-home-dropdown-menu');
+
+mobileHomeDropdownBtn.addEventListener('click', () => {
+  const expanded = mobileHomeDropdownBtn.getAttribute('aria-expanded') === 'true';
+  mobileHomeDropdownBtn.setAttribute('aria-expanded', String(!expanded));
+  mobileHomeDropdownMenu.classList.toggle('hidden');
+  mobileHomeDropdownBtn.querySelector('svg').classList.toggle('rotate-180');
+});
+</script>
+
+</body>
+</html>
